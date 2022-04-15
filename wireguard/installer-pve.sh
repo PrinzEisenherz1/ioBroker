@@ -2,7 +2,7 @@
 ##################################
 #            Variablen           #
 ##################################
-INSTAVER="wireguard-easy-install V1.2.2 Stand 18.01.2022     @2022 forum.iobroker.net/user/crunkfx"
+INSTAVER="wireguard-easy-install V1.2.3 Stand 15.04.2022     @2022 PrinzEisenherz1"
 # Altes Installationsverzeichnis
 OLDDIR="/root/wireguard-ui"
 
@@ -135,20 +135,20 @@ function wgui_installer {
     mkdir /opt/wireguard-ui
     arch=$(uname -m)
     if [[ $arch == x86_64* ]]; then
-        wget https://github.com/ngoduykhanh/wireguard-ui/releases/download/v0.3.5/wireguard-ui-v0.3.5-linux-amd64.tar.gz -O /opt/wireguard-ui/install.tar.gz
+        wget https://github.com/ngoduykhanh/wireguard-ui/releases/download/v0.3.7/wireguard-ui-v0.3.7-linux-amd64.tar.gz -O /opt/wireguard-ui/install.tar.gz
         elif [[ $arch == i*86 ]]; then
-        wget https://github.com/ngoduykhanh/wireguard-ui/releases/download/v0.3.5/wireguard-ui-v0.3.5-linux-386.tar.gz -O /opt/wireguard-ui/install.tar.gz
+        wget https://github.com/ngoduykhanh/wireguard-ui/releases/download/v0.3.7/wireguard-ui-v0.3.7-linux-386.tar.gz -O /opt/wireguard-ui/install.tar.gz
         elif  [[ $arch == arm* ]]; then
-        wget https://github.com/ngoduykhanh/wireguard-ui/releases/download/v0.3.5/wireguard-ui-v0.3.5-linux-arm.tar.gz -O /opt/wireguard-ui/install.tar.gz
+        wget https://github.com/ngoduykhanh/wireguard-ui/releases/download/v0.3.7/wireguard-ui-v0.3.7-linux-arm.tar.gz -O /opt/wireguard-ui/install.tar.gz
     fi
-    wget https://raw.githubusercontent.com/KleSecGmbH/ioBroker/main/wireguard/wgui.path -O /etc/systemd/system/wgui.path
+    wget https://raw.githubusercontent.com/PrinzEisenherz1/ioBroker/main/wireguard/wgui.path -O /etc/systemd/system/wgui.path
     if [ -f "/bin/systemctl" ]; then
-    wget https://raw.githubusercontent.com/KleSecGmbH/ioBroker/main/wireguard/wgui-bin.service -O /etc/systemd/system/wgui.service
+    wget https://raw.githubusercontent.com/PrinzEisenherz1/ioBroker/main/wireguard/wgui-bin.service -O /etc/systemd/system/wgui.service
     else
-    wget https://raw.githubusercontent.com/KleSecGmbH/ioBroker/main/wireguard/wgui-usr.service -O /etc/systemd/system/wgui.service     
+    wget https://raw.githubusercontent.com/PrinzEisenherz1/ioBroker/main/wireguard/wgui-usr.service -O /etc/systemd/system/wgui.service     
     fi
     
-    wget https://raw.githubusercontent.com/KleSecGmbH/ioBroker/main/wireguard/wireguard-ui.service -O /etc/systemd/system/wireguard-ui.service
+    wget https://raw.githubusercontent.com/PrinzEisenherz1/ioBroker/main/wireguard/wireguard-ui.service -O /etc/systemd/system/wireguard-ui.service
     
     cd /opt/wireguard-ui
     tar -xf install.tar.gz
